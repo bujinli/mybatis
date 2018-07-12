@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.learn.demo.mybatisspring.mapper.StudentMapper">
+
+	<select id="getStudents" resultType="com.learn.demo.mybatisspring.domain.Student">
+		select * from t_student
+		order by id
+	</select>
+
+	<select id="getStudent" resultType="com.learn.demo.mybatisspring.domain.Student">
+		select * from t_student where
+		id=#{value}
+	</select>
+
+</mapper>
