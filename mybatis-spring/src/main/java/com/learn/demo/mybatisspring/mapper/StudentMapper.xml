@@ -6,8 +6,7 @@
 <mapper namespace="com.learn.demo.mybatisspring.mapper.StudentMapper">
 
 	<select id="getStudents" resultType="com.learn.demo.mybatisspring.domain.Student">
-		select * from t_student
-		order by id
+		SELECT * FROM "com_sap_grc_dpp_ropa::ropa.t_student";
 	</select>
 
 	<select id="getStudent" resultType="com.learn.demo.mybatisspring.domain.Student">

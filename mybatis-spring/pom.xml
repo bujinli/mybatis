@@ -22,12 +22,28 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+
+		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+		<version.ngdbc>2.3.2</version.ngdbc>
+		<version.hana-mt-lib>2.1.0-20180628115358</version.hana-mt-lib>
+		<sap-hana-service-connector-version>1.0.4.RELEASE</sap-hana-service-connector-version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- HANA multi-tenancy library from ICD -->
+		<!-- <dependency> <groupId>com.sap.icd</groupId> <artifactId>mt-spring-boot-starter</artifactId> 
+			<version>${version.hana-mt-lib}</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.sap.db.jdbc</groupId>
+			<artifactId>ngdbc</artifactId>
+			<version>${version.ngdbc}</version>
 		</dependency>
 
 		<dependency>
@@ -58,11 +74,37 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.sap.hana.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-hana-service-connector</artifactId>
+			<version>${sap-hana-service-connector-version}</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-cloud-connectors</artifactId> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cloud-connectors</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<finalName>mybatis-spring</finalName>

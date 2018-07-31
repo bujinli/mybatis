@@ -33,7 +33,7 @@ public class StudentController {
 	}
 
 	@GetMapping("/{id}")
-//	@Transactional
+	// @Transactional
 	public Student getStudents(@PathVariable(name = "id") Integer id) {
 		// SqlSession session = sqlSessionFactory.openSession();
 		//
